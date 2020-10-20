@@ -131,7 +131,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 
-MEDIA_URL = '/static/'
+#MEDIA_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
 # ...
 SITE_ID = 1
