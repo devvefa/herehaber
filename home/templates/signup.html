@@ -1,0 +1,95 @@
+{% extends 'mainbase.html' %}
+
+{% load static %}
+
+{% block header %}{% include "header.html" %}{% endblock %}
+{% block content %}
+
+
+
+    <div class="container">
+        <form class="form-horizontal" method="post">
+            {% csrf_token %}
+
+            {% for field in form %}
+                <p>
+                    {{ field.label_tag }}<br>
+                    {{ field }}
+                    {% if field.help_text %}
+                        <small style="color: gray">{{ field.help_text }}</small>
+                    {% endif %}
+                        {% for error in form.subject.errors %}
+                            <li><strong>{{ error|escape }}</strong></li>
+                        {% endfor %}
+
+                </p>
+            {% endfor %}
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+
+            <!--
+                        <div class="form-group">
+                            <label for="id_username">User Name :</label>
+
+                            <div class="col-sm-4">
+
+                                <input type="text" name="username" maxlength="100" autofocus="" required="" id="id_username">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+
+                            <label for="id_email">Email :</label>
+                            <div class="col-sm-4">
+
+                                <input type="text" name="email" maxlength="100" required="" id="id_email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="id_first_name">First Name :</label>
+                            <div class="col-sm-4">
+
+                                <input type="text" name="first_name" maxlength="100" required="" id="id_first_name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="id_last_name">Last Name :</label>
+                            <div class="col-sm-4">
+                                <input type="text" name="last_name" maxlength="100" required="" id="id_last_name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="id_password1">Şifre:</label>
+                            <div class="col-sm-4">
+                                <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="id_password1"> Tekrar Şifre:</label>
+                            <div class="col-sm-4">
+                                <input type="password" name="password2" autocomplete="new-password" required="" id="id_password1">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-default">Submit</button>
+                            </div>
+                        </div>
+            -->
+
+
+
+{% endblock %}
+
+{% block javascripts %}{% include "javascripts.html" %}{% endblock %}
